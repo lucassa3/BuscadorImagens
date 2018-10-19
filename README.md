@@ -33,13 +33,13 @@ O algoritmo devera retornar as 5 imagens mais parecidas do diretorio vocab, com 
 ## Funcionamento do buscador:
 Para se buscar por uma imagem similar é necessário que um algoritmo aprenda e quantifique determinadas características tanto da imagem buscada quanto das imagens em seu banco de dados, para que possa compara-las ao escolher as mais parecidas. Para isso, a abordagem utilizada neste algoritmo é a chamada Bag of Visual Words, que recebe um vetor que descreve caracteristicas de certos pontos de uma imagem e busca separar estes pontos em um número pré-determinado de classes, através de clusterização.
 
-![Alt text](imgs/hist.png?raw=true "Title")
+![Alt text](utils/hist.png?raw=true "Title")
  
 *Fig. 1 – Representação de 3 imagens (bloco acima), classes possíveis para os pontos das imagens (bloco no meio) e a frequência destes descritores em cada imagem (histogramas embaixo).*
 
 Uma vez obtido o histograma de duas imagens, fica fácil comparar quão similar estas imagens são observando suas frequências para cada classe. A métrica de distância de histogramas utilizada é a chi-squared, representado pela seguinte fórmula:
 
-![Alt text](imgs/math.png?raw=true "Title")
+![Alt text](utils/math.png?raw=true "Title")
 
 Aonde xi, yi representam a frequência de cada classe i para seus respectivos histogramas.
 Ao final, o objetivo é escolher as imagens mais parecidas com uma imagem de busca utilizado-se dos algoritmos descritos acima.
