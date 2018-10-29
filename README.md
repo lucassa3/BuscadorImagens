@@ -80,3 +80,8 @@ $ python search.py -s <busca> -p 1
 O algoritmo devera retornar as 5 imagens mais confiantes pelo termo buscado, com informação de acuracia com o termo buscado.
 
 ## Funcionamento do buscador:
+Esta entrega foi baseada na utilização de redes neurais convolucionais para aprender a prever classes para diferentes tipos de imagens. Em particular, nesteprojeto, foi utilizado uma rede pré treinada famosa, chamada MobileNetV2, extraido da biblioteca Keras, que é particularmente enxuta e eficiente se comparado com outras redes pré treinadas, como as redes VGG16 e VGG19. A rede utilizada foi pre treinada com o banco de dados ImageNet, que dispõe de cerca de um milhão de imagens categorizadas em 1000 classes diferentes, que são as classes aceitas pela engine de busca.
+
+O código, em sua primeira execução, constrói os indices pro banco de dados utilizado (neste caso, um proprio montado pelos alunos da disciplina) probabilidade de cada uma das 1000 classes por imagem. Isto é feito para que estas probabilidades não tenham que ser calculadas toda vez que o algoritmo roda, o que deixaria a busca muito mais lenta. Em seguida, tambem na primeira execucao, é montado uma lista que relaciona descrição da classe com id da mesma, para evitar ficar procurando em um arquivo separado toda vez que uma busca é requisitada.
+
+Uma vez montados os indices e a lista id-descricao, ao se buscar por um termo, este é convertido em um indice (id) que é usado para achar a probabilidade de cada imagem naquela classe buscada especifica. Por fim, é elencado as 5 imagens com a maior probabilidade para determinado indice e mostrado em janelas separadas por meio de um plt.imshow(). O score para cada uma dessas imagens exibidas tambem é mostrado no terminal.
