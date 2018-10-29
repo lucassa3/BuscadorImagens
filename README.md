@@ -1,14 +1,14 @@
-# BuscadorImagens - Parte 1
+# BuscadorImagens
 Projeto de uma engine de busca de imagens
 
-Relatório: Buscador de Imagens – Parte 1
+Relatório: Buscador de Imagens
 
 Por Lucas Scarlato Astur
 
 ## Sobre:
+O projeto foi divido em duas partes, sem conexao entre si: na primeira o objetivo foi criar uma engine de busca de imagens que recebe uma imagem e retorna as imagens mais parecidas de um banco de dados interno. A maneira como o algoritmo funciona e como se dá o pipeline da busca de uma imagem são apresentados nos tópicos relativos a parte 1. A parte 2 teve como objetivo retornar imagens mais provaveis de acordo com um termo de busca (parcial ou nao). O banco de dados utilizado foi montado pelos proprios alunos em sala de aula.
 
-O objetivo da primeira parte do projeto Buscador de Imagens é criar uma engine de busca de imagens que recebe uma imagem e retorna as imagens mais parecidas de um banco de dados interno. A maneira como o algoritmo funciona e como se dá o pipeline da busca de uma imagem são apresentados nos tópicos a seguir.
-
+# Parte 1:
 
 ## Como rodar:
 O usuário precisa ter instalado:
@@ -43,3 +43,40 @@ Uma vez obtido o histograma de duas imagens, fica fácil comparar quão similar 
 
 Aonde xi, yi representam a frequência de cada classe i para seus respectivos histogramas.
 Ao final, o objetivo é escolher as imagens mais parecidas com uma imagem de busca utilizado-se dos algoritmos descritos acima.
+
+# Parte 2:
+
+## Como rodar:
+O usuário precisa ter instalado:
+ * Python v3.6.4 ou maior;
+ * Keras;
+ * Tensorflow;
+ * Argparse;
+
+Para rodar o programa, simplesmente:
+```
+$ python search.py -s <busca>
+```
+
+Existem algumas flags opcionais para execucao do programa. Se desejar reconstruir ou construir os indices armazenados da engine de busca:
+
+```
+$ python search.py -s <busca> --build 1
+```
+Ou:
+
+```
+$ python search.py -s <busca> -b 1
+```
+Caso deseje procurar por um termo parcial de busca, ao inves da classe inteira:
+```
+$ python search.py -s <busca> --partial 1
+```
+Ou:
+
+```
+$ python search.py -s <busca> -p 1
+```
+O algoritmo devera retornar as 5 imagens mais confiantes pelo termo buscado, com informação de acuracia com o termo buscado.
+
+## Funcionamento do buscador:
